@@ -1,5 +1,5 @@
 # Use uma imagem base Python oficial e leve.
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 # Instale as dependências de sistema necessárias para Prophet e psycopg2.
 # 'build-essential' é para compilar pacotes e 'libpq-dev' para a conexão com PostgreSQL.
