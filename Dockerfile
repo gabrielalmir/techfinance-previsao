@@ -3,10 +3,7 @@ FROM python:3.9-slim
 
 # Instale as dependências de sistema necessárias para Prophet e psycopg2.
 # 'build-essential' é para compilar pacotes e 'libpq-dev' para a conexão com PostgreSQL.
-RUN apt-get update && apt-get install -y \\
-    build-essential \\
-    libpq-dev \\
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y build-essential libpq-dev && rm -rf /var/lib/apt/lists/*
 
 # Defina o diretório de trabalho no contêiner.
 WORKDIR /app
