@@ -2,6 +2,7 @@ import psycopg2
 from dotenv import load_dotenv
 import os
 from fastapi import FastAPI, Depends, Query, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from auth import verify_token
 from database import fetch_sales_data
 from forecasting import prever_vendas
@@ -20,6 +21,14 @@ app = FastAPI(
     title="API de Previsão e Otimização",
     description="Uma API para realizar previsões de séries temporais e otimizações.",
     version="0.1.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/")
