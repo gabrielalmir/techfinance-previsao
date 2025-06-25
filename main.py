@@ -44,6 +44,9 @@ def forecast_sales(
     Endpoint para previsão de vendas.
     Busca dados reais do banco de dados, treina um modelo Prophet e retorna a previsão.
     """
+    if dias_previsao > 90:
+        raise HTTPException(status_code=400, detail="O número de dias para previsão não pode ser maior que 90 dias.")
+
     # 1. Buscar dados reais
     df_vendas = fetch_sales_data()
 
